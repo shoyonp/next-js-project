@@ -5,13 +5,10 @@ import axios from "axios";
 import Header from "@/components/Header";
 import { usePathname } from "next/navigation";
 
-export default function BlogDetails() {
+const BlogDetails = () => {
   const [post, setPost] = useState(null);
   const id = usePathname();
   const idValue = id.split("/")[2];
-  console.log(idValue);
-
-  console.log(idValue);
 
   useEffect(() => {
     if (id) {
@@ -33,4 +30,5 @@ export default function BlogDetails() {
       </div>
     </div>
   );
-}
+};
+export default BlogDetails;
