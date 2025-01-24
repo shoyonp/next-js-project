@@ -1,8 +1,11 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {LogoutLink, LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
+import {  useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 const Header = () => {
+  const { user } = useKindeBrowserClient(); 
   const pathname = usePathname();
 
   // Function to determine if a link is active
@@ -30,9 +33,19 @@ const Header = () => {
           </Link>
         </div>
         <div>
-          <button className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">
-            Login
-          </button>
+        {user ? (
+            <LogoutLink>
+              <button className="bg-red-500 px-4 py-2 rounded hover:bg-red-600">
+                Logout
+              </button>
+            </LogoutLink>
+          ) : (
+            <LoginLink>
+              <button className="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">
+                Login
+              </button>
+            </LoginLink>
+          )}
         </div>
       </nav>
     </header>
