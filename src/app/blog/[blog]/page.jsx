@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Header from "@/components/Header";
 import { usePathname } from "next/navigation";
 
 const BlogDetails = () => {
@@ -23,7 +22,6 @@ const BlogDetails = () => {
 
   return (
     <div>
-      <Header />
       <div className="max-w-4xl mx-auto p-6">
         <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
         <p>{post.body}</p>
