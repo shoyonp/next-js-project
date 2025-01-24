@@ -8,13 +8,13 @@ import { usePathname } from "next/navigation";
 const BlogDetails = () => {
   const [post, setPost] = useState(null);
   const id = usePathname();
-  const idValue = id.split("/")[2];
+  const idValue = id.split("/").pop();
 
   useEffect(() => {
     if (id) {
       axios
         .get(`https://jsonplaceholder.typicode.com/posts/${idValue}`)
-        .then((res) => setPost(res.data))
+        .then((response) => setPost(response.data))
         .catch((error) => console.error(error));
     }
   }, [id]);
