@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
-import Header from "@/components/Header";
-
 const Home = () => {
   const [posts, setPosts] = useState([]);
 
@@ -16,7 +14,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+     
       <div className="max-w-4xl mx-auto p-6">
         <h1 className="text-3xl font-bold text-center mb-6">Blog Viewer</h1>
         <ul className="space-y-4">
